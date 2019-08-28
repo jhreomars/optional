@@ -1,0 +1,27 @@
+---
+- name: Clean yum cache
+  shell: "yum clean all"
+  args:
+    warn: false
+  changed_when: false
+
+- name: yum install required system packages.
+  yum: name={{item}} state=present
+  with_items:
+      - expect
+      - java-1.8.0-openjdk
+      - glibc
+      - glibc-devel
+      - libstdc++
+      - zlib-devel
+      - ncurses-devel
+      - libX11-devel
+      - libXrender
+      - libstdc++
+      - mesa-libGL-devel
+      - ncurses-libs
+
+#- name: Install i386 dependencies on RH family
+#  yum: pkg={{ item }} state=present
+#  when: ansible_distribution == "Fedora" or ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+#  with_items: "{{ rh_dependency_packages }}"

@@ -1,0 +1,13 @@
+---
+# These tasks install goaccess from source.
+
+- name: Clean yum cache
+  shell: "yum clean all"
+  args:
+    warn: false
+  changed_when: false
+
+- name: yum install required system packages.
+  yum: name={{item}} state=present
+  with_items:
+      - goaccess

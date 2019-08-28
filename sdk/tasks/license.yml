@@ -1,0 +1,13 @@
+- name: Create a directory if it does not exist
+  file:
+    path: /opt/android-sdk-linux/licenses
+    state: directory
+    owner: 'root'
+    group: 'root'
+    mode: '0777'
+          
+- name: Add license file
+  template: src=android-sdk-license.j2 dest=/opt/android-sdk-linux/licenses/android-sdk-license
+            owner=root
+            group=root
+            mode=0777

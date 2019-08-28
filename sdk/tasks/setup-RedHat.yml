@@ -1,0 +1,5 @@
+---
+- include: dependencies-RedHat.yml
+- include: license.yml
+- include: sdktools-Linux.yml
+- include: sdksinstall-Linux.yml
